@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CokeJoke-WarpSystem">
+    <output-path>$PROJECT_DIR$/../../Server/plugins</output-path>
+    <root id="archive" name="CokeJoke-WarpSystem.jar">
+      <element id="module-output" name="CokeJoke-WarpPlugin" />
+    </root>
+  </artifact>
+</component>

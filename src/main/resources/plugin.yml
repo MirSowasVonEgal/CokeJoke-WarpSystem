@@ -1,0 +1,8 @@
+name: CokeJoke-WarpSystem
+version: 1.0
+author: MirSowasVonEgal
+main: me.mirsowasvonegal.WarpSystem
+commands:
+  removewarp:
+  setwarp:
+  warp:
