@@ -1,5 +1,6 @@
 package me.mirsowasvonegal.command;
 
+import me.mirsowasvonegal.function.Warp;
 import me.mirsowasvonegal.utils.Data;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -21,11 +22,11 @@ public class setWarpCommand implements CommandExecutor {
             if(args.length == 0) {
                 player.sendMessage("§e/setwarp <name>");
             } else if (args.length == 1) {
-                if (Data.getWarps().containsKey(args[0])) {
+                if (new Warp(args[0]).exist()) {
                     player.sendMessage("§cDiesen Warp gibt es schon!");
                 } else {
                     player.sendMessage("§7Du hast den Warp §3" + args[0] + "§7 erstellt!");
-                    Data.getWarps().put(args[0], player.getLocation());
+                    new Warp(args[0]).set( player.getLocation());
                 }
             } else {
                 player.sendMessage("§e/setwarp <name>");
