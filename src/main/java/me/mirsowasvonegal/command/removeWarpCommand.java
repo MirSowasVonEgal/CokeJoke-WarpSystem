@@ -1,7 +1,6 @@
 package me.mirsowasvonegal.command;
 
-import me.mirsowasvonegal.function.Warp;
-import me.mirsowasvonegal.utils.Data;
+import me.mirsowasvonegal.data.Warp;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -22,9 +21,9 @@ public class removeWarpCommand implements CommandExecutor {
             if(args.length == 0) {
                 player.sendMessage("§e/removewarp <name>");
             } else if (args.length == 1) {
-                if (new Warp(args[0]).exist()) {
+                if (Warp.getWarps().containsKey(args[0])) {
                     player.sendMessage("§7Du hast den Warp gelöscht!");
-                    new Warp(args[0]).remove();
+                    new Warp(args[0], player.getLocation()).remove();
                 } else {
                     player.sendMessage("§cDiesen Warp gibt es nicht!");
                 }

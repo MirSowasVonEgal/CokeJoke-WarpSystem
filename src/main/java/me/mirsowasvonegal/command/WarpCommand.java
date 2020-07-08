@@ -1,7 +1,6 @@
 package me.mirsowasvonegal.command;
 
-import me.mirsowasvonegal.function.Warp;
-import me.mirsowasvonegal.utils.Data;
+import me.mirsowasvonegal.data.Warp;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -23,11 +22,11 @@ public class WarpCommand implements CommandExecutor {
             if(args.length == 0) {
                 player.sendMessage("§e/warp <name>");
             } else if (args.length == 1) {
-                if (!new Warp(args[0]).exist()) {
+                if (!(Warp.getWarps().containsKey(args[0]))) {
                     player.sendMessage("§cDiesen Warp gibt es nicht!");
                 } else {
                     player.sendMessage("§aDu wurdest zu §3" + args[0] + " §7teleportiert!");
-                    Location location = new Warp(args[0]).get();
+                    Location location = new Warp(args[0], player.getLocation()).get();
                     player.teleport(location);
                 }
             } else {
