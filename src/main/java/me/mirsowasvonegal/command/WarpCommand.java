@@ -22,13 +22,7 @@ public class WarpCommand implements CommandExecutor {
             if(args.length == 0) {
                 player.sendMessage("§e/warp <name>");
             } else if (args.length == 1) {
-                if (!(Warp.getWarps().containsKey(args[0]))) {
-                    player.sendMessage("§cDiesen Warp gibt es nicht!");
-                } else {
-                    player.sendMessage("§aDu wurdest zu §3" + args[0] + " §7teleportiert!");
-                    Location location = new Warp(args[0], player.getLocation()).get();
-                    player.teleport(location);
-                }
+                new Warp(args[0], player).teleport();
             } else {
                 player.sendMessage("§e/warp <name>");
             }

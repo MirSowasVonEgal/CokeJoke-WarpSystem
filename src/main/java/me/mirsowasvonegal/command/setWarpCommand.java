@@ -21,12 +21,7 @@ public class setWarpCommand implements CommandExecutor {
             if(args.length == 0) {
                 player.sendMessage("§e/setwarp <name>");
             } else if (args.length == 1) {
-                if (Warp.getWarps().containsKey(args[0])) {
-                    player.sendMessage("§cDiesen Warp gibt es schon!");
-                } else {
-                    player.sendMessage("§7Du hast den Warp §3" + args[0] + "§7 erstellt!");
-                    new Warp(args[0], player.getLocation()).set();
-                }
+                new Warp(args[0], player).set();
             } else {
                 player.sendMessage("§e/setwarp <name>");
             }
